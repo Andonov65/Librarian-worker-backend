@@ -1,6 +1,7 @@
 package com.example.lab2.service.impl;
 
 import com.example.lab2.model.Author;
+import com.example.lab2.model.Country;
 import com.example.lab2.repository.AuthorRepository;
 import com.example.lab2.service.AuthorService;
 import org.springframework.stereotype.Service;
@@ -24,5 +25,10 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public Optional<Author> getAuthor(Long id) {
         return this.authorRepository.findById(id);
+    }
+
+    @Override
+    public Author save(String name, String surname, Country country) {
+        return this.authorRepository.save(new Author(name,surname,country));
     }
 }
